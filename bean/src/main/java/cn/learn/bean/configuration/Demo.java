@@ -1,4 +1,4 @@
-package cn.learn.bean;
+package cn.learn.bean.configuration;
 
 /**
  * A Class.

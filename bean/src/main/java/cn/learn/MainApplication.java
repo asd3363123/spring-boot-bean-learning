@@ -1,14 +1,10 @@
 package cn.learn;
 
-import cn.learn.bean.Demo;
+import cn.learn.bean.configurationProperties.TestConfigurationProperties;
+import cn.learn.bean.configurationProperties.TestEnableConfigurationProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
-import org.springframework.stereotype.Controller;
 
 /**
  * A Class.
@@ -23,20 +19,27 @@ public class MainApplication {
 
     public static void main(String[] args) {
         context = SpringApplication.run(MainApplication.class, args);
-        Demo demo = context.getBean(Demo.class);
-        System.out.println(demo == null ? null : demo.toString());
-    }
-}
+//        test4ConfigurationProperties();
+        test4EnableConfigurationProperties();
 
-@Configuration
-@ComponentScan(excludeFilters = {
-        @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class})
-})
-class TestConfiguration {
-
-    @Bean
-    public Demo crateDemoBean() {
-        return new Demo();
     }
 
+    private static void test4ConfigurationProperties() {
+        System.out.println("-- -- -- ConfigurationProperties 注解测试 -- -- --");
+        TestConfigurationProperties testConfigurationProperties = context.getBean(TestConfigurationProperties.class);
+        System.out.println(testConfigurationProperties.getHost());
+        System.out.println(testConfigurationProperties.getPort());
+        System.out.println(testConfigurationProperties.getMail().getSmtp());
+        System.out.println("-- -- -- ConfigurationProperties 注解测试 -- -- --");
+    }
+
+    private static void test4EnableConfigurationProperties() {
+        System.out.println("-- -- -- EnableConfigurationProperties 注解测试 -- -- --");
+        TestEnableConfigurationProperties testEnableConfigurationProperties = context.getBean(TestEnableConfigurationProperties.class);
+        testEnableConfigurationProperties.test();
+        System.out.println("-- -- -- EnableConfigurationProperties 注解测试 -- -- --");
+    }
+
 }
+
+
