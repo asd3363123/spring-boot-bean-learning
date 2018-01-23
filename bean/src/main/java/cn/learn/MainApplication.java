@@ -1,6 +1,7 @@
 package cn.learn;
 
 import cn.learn.bean.conditional.TestConditional;
+import cn.learn.bean.conditional.springboot.TestSpringBootConditional;
 import cn.learn.bean.configuration.Demo;
 import cn.learn.bean.configuration.Demo2;
 import cn.learn.bean.configurationProperties.TestConfigurationProperties;
@@ -25,6 +26,7 @@ public class MainApplication {
 //        test4ConfigurationProperties();
 //        test4EnableConfigurationProperties();
         test4Conditional();
+        test4SpringBootConditional();
 
     }
 
@@ -49,6 +51,13 @@ public class MainApplication {
         TestConditional conditional = context.getBean(TestConditional.class);
         conditional.test();
         System.out.println("-- -- -- Conditional 注解测试 -- -- --");
+    }
+
+    private static void test4SpringBootConditional() {
+        System.out.println("-- -- -- SpringBootConditional 注解测试 -- -- --");
+        TestSpringBootConditional testSpringBootConditional = context.getBean(TestSpringBootConditional.class);
+        testSpringBootConditional.test();
+        System.out.println("-- -- -- SpringBootConditional 注解测试 -- -- --");
     }
 
 }

@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
  * 3、方法级别可以放在标识由@Bean的方法上
  * 4、此注解不产生bean
  * 拓展：
- *
+ *  ConditionalOnBean
  *
  * @author liyufan
  * @date 2018/1/23
