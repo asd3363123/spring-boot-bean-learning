@@ -1,5 +1,8 @@
 package cn.learn;
 
+import cn.learn.bean.conditional.TestConditional;
+import cn.learn.bean.configuration.Demo;
+import cn.learn.bean.configuration.Demo2;
 import cn.learn.bean.configurationProperties.TestConfigurationProperties;
 import cn.learn.bean.configurationProperties.TestEnableConfigurationProperties;
 import org.springframework.boot.SpringApplication;
@@ -20,7 +23,8 @@ public class MainApplication {
     public static void main(String[] args) {
         context = SpringApplication.run(MainApplication.class, args);
 //        test4ConfigurationProperties();
-        test4EnableConfigurationProperties();
+//        test4EnableConfigurationProperties();
+        test4Conditional();
 
     }
 
@@ -38,6 +42,13 @@ public class MainApplication {
         TestEnableConfigurationProperties testEnableConfigurationProperties = context.getBean(TestEnableConfigurationProperties.class);
         testEnableConfigurationProperties.test();
         System.out.println("-- -- -- EnableConfigurationProperties 注解测试 -- -- --");
+    }
+
+    private static void test4Conditional() {
+        System.out.println("-- -- -- Conditional 注解测试 -- -- --");
+        TestConditional conditional = context.getBean(TestConditional.class);
+        conditional.test();
+        System.out.println("-- -- -- Conditional 注解测试 -- -- --");
     }
 
 }
