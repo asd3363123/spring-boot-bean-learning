@@ -1,7 +1,7 @@
 package cn.learn.bean.configuration;
 
 /**
- * A Class.
+ * Configuration 测试用例
  *
  * @author liyufan
  * @date 2018/1/5
