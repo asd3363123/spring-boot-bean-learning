@@ -1,9 +1,9 @@
 package cn.learn;
 
+import cn.learn.bean.Import.DemoObj;
+import cn.learn.bean.Import.TestImport;
 import cn.learn.bean.conditional.TestConditional;
 import cn.learn.bean.conditional.springboot.TestSpringBootConditional;
-import cn.learn.bean.configuration.Demo;
-import cn.learn.bean.configuration.Demo2;
 import cn.learn.bean.configurationProperties.TestConfigurationProperties;
 import cn.learn.bean.configurationProperties.TestEnableConfigurationProperties;
 import org.springframework.boot.SpringApplication;
@@ -25,9 +25,9 @@ public class MainApplication {
         context = SpringApplication.run(MainApplication.class, args);
 //        test4ConfigurationProperties();
 //        test4EnableConfigurationProperties();
-        test4Conditional();
-        test4SpringBootConditional();
-
+//        test4Conditional();
+//        test4SpringBootConditional();
+        test4Import();
     }
 
     private static void test4ConfigurationProperties() {
@@ -60,6 +60,17 @@ public class MainApplication {
         System.out.println("-- -- -- SpringBootConditional 注解测试 -- -- --");
     }
 
+    public static void test4Import() {
+        System.out.println("-- -- -- import 注解测试 -- -- --");
+        TestImport testImport = context.getBean(TestImport.class);
+        System.out.println(testImport.toString());
+        testImport.printDemoObj();
+
+        DemoObj demoObj = context.getBean(DemoObj.class);
+        System.out.println(demoObj.toString());
+        System.out.println(demoObj.getName());
+        System.out.println("-- -- -- import 注解测试 -- -- --");
+    }
 }
 
 

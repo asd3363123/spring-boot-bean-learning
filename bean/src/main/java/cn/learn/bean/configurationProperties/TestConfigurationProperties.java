@@ -23,7 +23,7 @@ import javax.validation.constraints.NotNull;
         ignoreUnknownFields = false,
         prefix = "qianlu.test"
 )
-@PropertySource("classpath:/config/mail.properties")
+@PropertySource("classpath:/config/test.properties")
 public class TestConfigurationProperties {
 
     private String host;
